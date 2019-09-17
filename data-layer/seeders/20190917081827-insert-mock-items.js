@@ -13,11 +13,9 @@ const items = [
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    if (process.env.SHOULD_SEED === true) {
-      console.log("toto");
+    if (process.env.SHOULD_SEED === "true") {
       return queryInterface.bulkInsert("Items", items, {});
     } else {
-      console.log("tata");
       return new Promise((resolve, reject) => {
         return;
       });
@@ -25,7 +23,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    if (process.env.SHOULD_SEED === true) {
+    if (process.env.SHOULD_SEED === "true") {
       return queryInterface.bulkDelete(
         "Items",
         {
