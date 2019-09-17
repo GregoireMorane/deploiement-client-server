@@ -3,19 +3,21 @@
 const items = [
   {
     id: "MAYBE-1234",
-    name: "Hammer"
+    name: "Maybe"
   },
   {
     id: "MAYBENOT-5678",
-    name: "Nails"
+    name: "Maybe Not"
   }
 ];
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
     if (process.env.SHOULD_SEED === true) {
+      console.log("toto");
       return queryInterface.bulkInsert("Items", items, {});
     } else {
+      console.log("tata");
       return new Promise((resolve, reject) => {
         return;
       });
